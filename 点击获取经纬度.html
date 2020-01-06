@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>demo</title>
+
+</head>
+
+<style type="text/css">
+  .map {
+    height: 500px;
+    width: 500px;
+  }
+</style>
+
+<body>
+
+  <button onclick="display()">点击</button>
+  <div id="map-container" class="map"></div>
+
+  <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=您申请的key值&plugin=AMap.Autocomplete"></script>
+  <script type="text/javascript">
+    let flag = false;
+
+    function display() {
+      if (!flag) {
+        flag = true;
+        document.getElementById('map-container').style.display = 'none';
+      } else {
+        document.getElementById('map-container').style.display = 'block';
+        flag = false;
+      }
+    }
+
+    var map = new AMap.Map("map-container", {
+      resizeEnable: true
+    });
+
+    //为地图注册click事件获取鼠标点击出的经纬度坐标
+    map.on('click', function (e) {
+      console.log("经度: " + e.lnglat.getLng(), "纬度: " + e.lnglat.getLat());
+    });
+
+    var marker;
+    var icon = new AMap.Icon({
+      image: 'http://vdata.amap.com/icons/b18/1/2.png',
+      size: new AMap.Size(10, 12)
+    });
+    marker = new AMap.Marker({
+      offset: new AMap.Pixel(-12, -12),
+      position: new AMap.LngLat(103.56723, 31.9),
+      zIndex: 101
+    });
+
+    map.add(marker)
+  </script>
+</body>
+
+</html>
