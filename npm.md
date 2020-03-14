@@ -38,3 +38,43 @@ html2canvas(domName).then(canvas => {
 
 // 详情见文档 http://html2canvas.hertzen.com/
 ```
+
+### 3、React 简单富文本编辑器
+
+> npm install react-quill
+
+> yarn add react-quill
+
+#### 使用
+```
+import React from 'react';
+import ReactQuill from 'react-quill'; // ES6
+import 'react-quill/dist/quill.snow.css';
+
+class Demo extends React.Component {
+
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      content: '',
+    }
+    this.onHandleContent = this.onHandleContent.bind(this)
+  }
+
+  onHandleContent = (value: string) => {
+    this.setState({ content: value });
+  }
+
+  render() {
+    return (
+      <main>
+        <ReactQuill
+          placeholder="输入文章内容..."
+          value={this.state.content}
+          onChange={this.onHandleContent}
+        />
+      </main>
+    )
+  }
+}
+```
