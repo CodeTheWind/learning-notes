@@ -1,4 +1,4 @@
-let obj = {
+const obj = {
   item: [{
     name: 'dy',
     age: 21,
@@ -11,10 +11,14 @@ let obj = {
   {
     name: 'hyj',
     age: 20
-  }
-  ]
+  }],
+  value: 22,
+  name: '解构赋值'
 };
 
 const { item } = obj;
+const { name } = obj;
 
-console.log(item[0]);
+console.log(item);
+console.log(name);
+
