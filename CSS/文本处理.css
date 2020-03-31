@@ -1,0 +1,16 @@
+/* 单行文本溢出 */
+.alone-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 多行文本溢出 */
+.multiple-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  /* 行数 */
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
